@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: MyString
+  location: MyString
+  start_time: MyString
+  start_date: MyString
+  structure: MyString
+  buy_in: 1
+  guarantee: MyString
+  event_length: MyString
+
+two:
+  event: MyString
+  location: MyString
+  start_time: MyString
+  start_date: MyString
+  structure: MyString
+  buy_in: 1
+  guarantee: MyString
+  event_length: MyString

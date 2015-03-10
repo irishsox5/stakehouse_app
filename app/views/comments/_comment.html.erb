@@ -1,0 +1,9 @@
+<li class="media">
+  <div class="media-left">
+    <%= image_tag current_user.image_url %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.user.username %></h4>
+    <%= comment.content %>
+  </div>
+</li>
