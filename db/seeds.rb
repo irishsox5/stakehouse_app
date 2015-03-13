@@ -541,7 +541,7 @@ t47.tour_id=p1.id
 t47.save
 
 t48=Tournament.new
-t48.event="Event #44: THE POKER PLAYERS CHAMPIONSHIP"
+t48.event="Event #44: THE $50,000 POKER PLAYERS CHAMPIONSHIP"
 t48.location="Rio All-Suite Hotel & Casino, 3700 West Flamingo Road, Las Vegas, NV  US"
 t48.start_time="4:00 PM"
 t48.start_date="Sunday, June 21st"
@@ -827,7 +827,7 @@ t73.tour_id=p1.id
 t73.save
 
 t74=Tournament.new
-t74.event="Event #68A: No-Limit Hold'em MAIN EVENT"
+t74.event="Event #68A: $10,000 No-Limit Hold'em MAIN EVENT"
 t74.location="Rio All-Suite Hotel & Casino, 3700 West Flamingo Road, Las Vegas, NV  US"
 t74.start_time="12:00 PM"
 t74.start_date="Sunday, July 5th"
@@ -838,7 +838,7 @@ t74.tour_id=p1.id
 t74.save
 
 t75=Tournament.new
-t75.event="Event #68B: No-Limit Hold'em MAIN EVENT"
+t75.event="Event #68B: $10,000 No-Limit Hold'em MAIN EVENT"
 t75.location="Rio All-Suite Hotel & Casino, 3700 West Flamingo Road, Las Vegas, NV  US"
 t75.start_time="12:00 PM"
 t75.start_date="Monday, July 6th"
@@ -849,7 +849,7 @@ t75.tour_id=p1.id
 t75.save
 
 t76=Tournament.new
-t76.event="Event #68C: No-Limit Hold'em MAIN EVENT"
+t76.event="Event #68C: $10,000 No-Limit Hold'em MAIN EVENT"
 t76.location="Rio All-Suite Hotel & Casino, 3700 West Flamingo Road, Las Vegas, NV  US"
 t76.start_time="12:00 PM"
 t76.start_date="Tuesday, July 7th"

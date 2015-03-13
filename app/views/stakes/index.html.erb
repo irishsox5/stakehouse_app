@@ -42,11 +42,15 @@
 
         </dl>
         <div class="btn-group btn-group-justified">
+        <%  if current_user == stake.user %>
           <%= link_to icon('search-plus'), stake, class: "btn btn-primary" %>
 
           <%= link_to icon('edit'), edit_stake_url(stake), class: "btn btn-warning" %>
 
           <%= link_to icon('trash-o'), stake, method: :delete, data: { confirm: "Do you really want to delete this following?" }, class: "btn btn-danger" %>
+          <% else %>
+          <%= link_to icon('search-plus'), stake, class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>

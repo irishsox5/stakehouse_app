@@ -4,7 +4,7 @@ class StakesController < ApplicationController
   # GET /stakes
   # GET /stakes.json
   def index
-    @stakes = Stake.all
+    @stakes = Stake.all.reverse
   end
 
   # GET /stakes/1

@@ -29,7 +29,7 @@
   </div>
    <div class="field">
     <%= f.label :mark_up %><br>
-    <%= f.select :mark_up, options_for_select([[1.00],[1.10],[1.15],[1.20],[1.25],[1.30],[1.35],[1.40],[1.45],[1.50]],:selected => params[:mark_up])  %>
+    <%= f.select :mark_up, options_for_select([1.00, 1.10, 1.15, 1.20, 1.25, 1.30, 1.35, 1.40, 1.45, 1.50], f.object.mark_up)%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'twitter'
+
 gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'font-awesome-sass', '~> 4.3.0'
 
 gem 'omniauth-twitter'
+
+gem 'figaro'
 
 
 gem 'activeadmin', github: 'activeadmin'

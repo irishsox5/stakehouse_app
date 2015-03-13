@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :tours
   has_many :tournaments
 
-    def self.create_with_omniauth(auth)
+  def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]

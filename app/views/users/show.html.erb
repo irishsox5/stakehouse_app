@@ -1,3 +1,4 @@
-<% if current_user %>
- <%= image_tag current_user.image_url, class: "img-circle profile-image" %>
- <% end %>
+<%= image_tag @user.image_url, class: "img-circle profile-image" %>
+<%= @user.screen_name %>
+
+

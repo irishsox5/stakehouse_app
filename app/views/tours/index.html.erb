@@ -1,12 +1,13 @@
 <h1>Live Poker Tours</h1>
 
-<div class="container">
-    <div class="row">
+
+<div class="bottom">
+    <div class="box-content right">
     <% @tours.each do |tour| %>
-       <div class="col-md-6">
-        <%= link_to image_tag(tour.image), tour_url(tour.id) %>
-     </div>
+        <div class="col-md-6"><%= link_to image_tag(tour.image), tour_url(tour.id) %><hr></div>
     <% end %>
         </div>
     </div>
-</div>
+
+
+

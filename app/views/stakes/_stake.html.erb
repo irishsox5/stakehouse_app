@@ -44,9 +44,6 @@
       <li class="media">
         <% comment = Comment.new %>
         <% comment.stake_id = stake.id %>
-
-        <%# comment = photo.comments.build %>
-
         <% comment.user_id = current_user.id %>
         <%= form_for comment do |f| %>
         <%= f.text_field :content, :class => "form-control", :placeholder => "Add your comment" %>
