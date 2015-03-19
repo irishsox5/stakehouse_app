@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :buy_in %><br>
-    <%= f.number_field :buy_in %>
+    <%= f.number_field :buy_in, min:0 %>
   </div>
   <div class="field">
     <%= f.label :guarantee %><br>

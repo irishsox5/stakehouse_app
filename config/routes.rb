@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
+
   ActiveAdmin.routes(self)
-  resources :comments
 
-  root :to => "users#index"
+# STATIC ROUTES==============================================
+  root "static_pages#home"
+  get '/landing_page' => "static_pages#home", :as => "landing_page"
 
+# COMMENTS ROUTES==============================================
+  resources :comments, :except =>[:index, :show]
+
+# USER ROUTES==============================================
+  get "/auth/twitter", :as => "signin"
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
 

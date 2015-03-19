@@ -1,6 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_must_be_owner, only: [:edit, :update, :destroy]
 
+
+ def current_user_must_be_owner
+    if current_user != @comment.user
+      redirect_to :back
+    end
+  end
   # GET /comments
   # GET /comments.json
   def index
@@ -56,7 +63,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to :back }
       format.json { head :no_content }
       format.js
     end

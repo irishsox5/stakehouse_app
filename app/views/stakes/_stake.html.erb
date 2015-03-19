@@ -4,14 +4,14 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= image_tag @stake.user.image_url, class:"img-circle profile-image" %></h3>
+        <h3 class="panel-title"><%= image_tag @stake.user.image_url, class: "img-circle profile-image" %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Player</dt>
-              <dd><%= @stake.user.username %></dd>
+              <dd><%= link_to @stake.user.username, user_url(@stake.user.id) %></dd>
 
               <dt>Tour</dt>
               <dd><%= @stake.tour.name %></dd>
@@ -25,13 +25,23 @@
               <dt>Mark Up</dt>
               <dd><%= @stake.mark_up %></dd>
 
+              <% if @stake.description != nil %>
+              <dt>Description</dt>
+              <dd><%= @stake.description %></dd>
+              <% end %>
+
             </dl>
+
             <div class="btn-group btn-group-justified">
+            <% if current_user == stake.user %>
               <%= link_to icon('chevron-left'), stake_path, class: "btn btn-primary" %>
 
               <%= link_to icon('edit'), edit_stake_path(@stake), class: "btn btn-warning" %>
 
               <%= link_to icon('trash-o'), @stake, method: :delete, data: { confirm: "Do you really want to delete this following?" }, class: "btn btn-danger" %>
+            <% else %>
+            <%= link_to 'Buy Now', stake_path, class: "btn btn-primary" %>
+            <% end %>
             </div>
           </div>
         </div>
@@ -46,7 +56,7 @@
         <% comment.stake_id = stake.id %>
         <% comment.user_id = current_user.id %>
         <%= form_for comment do |f| %>
-        <%= f.text_field :content, :class => "form-control", :placeholder => "Add your comment" %>
+        <%= f.text_field :content, class: 'form-control', :placeholder => "Add your comment" %>
         <%= f.hidden_field :stake_id %>
         <%= f.hidden_field :user_id %>
         <% end %>

@@ -1,10 +1,18 @@
 class StakesController < ApplicationController
   before_action :set_stake, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_must_be_owner, only:[:edit, :update, :destroy]
 
   # GET /stakes
   # GET /stakes.json
+
+   def current_user_must_be_owner
+    if current_user != @stake.user
+      redirect_to :back
+    end
+  end
+
   def index
-    @stakes = Stake.all.reverse
+    @stakes = Stake.order('created_at DESC').page(params[:page])
   end
 
   # GET /stakes/1
@@ -15,6 +23,7 @@ class StakesController < ApplicationController
   # GET /stakes/new
   def new
     @stake = Stake.new
+    @tours = Tour.all
   end
 
   # GET /stakes/1/edit
@@ -56,7 +65,7 @@ class StakesController < ApplicationController
   def destroy
     @stake.destroy
     respond_to do |format|
-      format.html { redirect_to stakes_url, notice: 'Stake was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Stake was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +78,6 @@ class StakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stake_params
-      params.require(:stake).permit(:user_id, :tour_id, :tournament_id, :amount_of_shares, :mark_up)
+      params.require(:stake).permit(:user_id, :tour_id, :tournament_id, :amount_of_shares, :mark_up, :description)
     end
 end

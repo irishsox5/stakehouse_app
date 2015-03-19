@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
+  validates :user_id, presence: true
+
   has_many :stakes
   has_many :tours
   has_many :tournaments
+
+ratyrate_rateable 'integrity'
+
+ratyrate_rater
 
   def self.create_with_omniauth(auth)
     create! do |user|

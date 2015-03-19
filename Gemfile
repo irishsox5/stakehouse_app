@@ -10,6 +10,12 @@ gem 'omniauth-twitter'
 
 gem 'figaro'
 
+gem 'kaminari'
+
+gem 'ratyrate', :github => 'wazery/ratyrate'
+
+gem 'paypal-sdk-adaptivepayments'
+
 
 gem 'activeadmin', github: 'activeadmin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

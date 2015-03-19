@@ -1,4 +1,7 @@
 <%= image_tag @user.image_url, class: "img-circle profile-image" %>
 <%= @user.screen_name %>
 
+<div>
+Integrity : <%= rating_for @user, 'integrity',:disable_after_rate => true %>
+ </div>
 

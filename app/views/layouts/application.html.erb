@@ -7,17 +7,18 @@
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/paper/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://wenzhixin.net.cn/p/bootstrap-table/src/bootstrap-table.css">
 
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="jquery.min.js"></script>
-  <script src="bootstrap.min.js"></script>
-  <script src="bootstrap-table.js"></script>
+  <script src="http://wenzhixin.net.cn/p/bootstrap-table/src/bootstrap-table.js"></script>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if current_user %>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -40,17 +41,14 @@
       </form>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <% if current_user %>
         <li><%= link_to "Home", users_url %></li>
-        <li><%= link_to current_user.username, user_url(:id) %></li>
+        <li><%= link_to current_user.username, user_url(current_user.id) %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stakings <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to "Player Requesting Stake", tours_url %></li>
             <li class="divider"></li>
             <li><%= link_to "Investor Offering Stake", stakes_url %></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
           </ul>
         </li>
       </ul>
@@ -60,8 +58,6 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to 'Sign out', signout_path%></li>
-          <% else %>
-          <li><%= link_to "Log in with Twitter", "/auth/twitter" %></li>
           </ul>
           <% end %>
         </li>
