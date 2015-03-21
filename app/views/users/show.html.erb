@@ -1,7 +1,21 @@
-<%= image_tag @user.image_url, class: "img-circle profile-image" %>
+<%= image_tag @user.image_url %>
 <%= @user.screen_name %>
 
 <div>
 Integrity : <%= rating_for @user, 'integrity',:disable_after_rate => true %>
  </div>
 
+<a class="twitter-timeline"
+  href="https://twitter.com/twitterapi"
+  data-widget-id="578710097695797248"
+  width="300"
+  height="500"
+  data-screen-name="twitterapi" <%#=@client.user_timeline("gem") %>
+  data-show-replies="false"
+  data-tweet-limit="50">
+</a>
+
+
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>

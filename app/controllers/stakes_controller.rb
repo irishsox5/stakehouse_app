@@ -28,12 +28,22 @@ class StakesController < ApplicationController
 
   # GET /stakes/1/edit
   def edit
+    @tours = Tour.all
   end
 
   # POST /stakes
   # POST /stakes.json
   def create
     @stake = Stake.new(stake_params)
+    @stake.tournament_id_2 = params[:tournament_id_2]
+    @stake.tournament_id_3 = params[:tournament_id_3]
+    @stake.tournament_id_4 = params[:tournament_id_4]
+    @stake.tournament_id_5 = params[:tournament_id_5]
+    @stake.tournament_id_6 = params[:tournament_id_6]
+    @stake.tournament_id_7 = params[:tournament_id_7]
+    @stake.tournament_id_8 = params[:tournament_id_8]
+    @stake.tournament_id_9 = params[:tournament_id_9]
+    @stake.tournament_id_10 = params[:tournament_id_10]
 
     respond_to do |format|
       if @stake.save

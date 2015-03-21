@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_many :tours
   has_many :tournaments
 
-ratyrate_rateable 'integrity'
+  ratyrate_rateable 'integrity'
 
-ratyrate_rater
+  ratyrate_rater
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -19,4 +19,18 @@ ratyrate_rater
     end
   end
 
+  def self.client
+    @client ||= Twitter::REST::Client.new do |config|
+      config.consumer_key        = Rails.application.secrets['TWITTER_API_KEY']
+      config.consumer_secret     = Rails.application.secrets['TWITTER_SECRET_KEY']
+      config.access_token        = oauth_token
+      config.access_token_secret = oauth_secret
+
+    end
+  end
+
+  def self.user_tweets
+  @client.user_timeline("gem")
+
+  end
 end

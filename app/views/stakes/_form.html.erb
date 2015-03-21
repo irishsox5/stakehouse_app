@@ -35,11 +35,11 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description%>
+    <%= f.text_area :description,:cols => 50, :rows => 8, placeholder: " ex: Minimium Shares, Tax Handling, etc"%>
   </div>
   <div class="actions">
     <%= f.submit %>
-    <%= link_to 'Back', stakes_path %>
+    <button><%= link_to 'Back', stakes_path %></button>
   </div>
 <% end %>
 <script>
@@ -54,7 +54,8 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append("<div><%= j(select_tag 'tournament_id', options_from_collection_for_select(Tournament.all.where(:tour_id => 1), 'id', 'event'))%></div>")
+            $(wrapper).append("<div><select name='tournament_id_" + x + "'> <%=j(options_from_collection_for_select(Tournament.all.where(tour_id: 1), 'id', 'event'))%></select></div>")
+
 
             // <a href="#" class="remove_field">Remove</a></div>'") //add input box
         }

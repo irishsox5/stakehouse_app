@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317220232) do
+ActiveRecord::Schema.define(version: 20150319232232) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 20150317220232) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.text     "description"
+    t.integer  "tournament_id_2"
+    t.integer  "tournament_id_3"
+    t.integer  "tournament_id_4"
+    t.integer  "tournament_id_5"
+    t.integer  "tournament_id_6"
+    t.integer  "tournament_id_7"
+    t.integer  "tournament_id_8"
+    t.integer  "tournament_id_9"
+    t.integer  "tournament_id_10"
   end
 
   create_table "tournaments", force: :cascade do |t|

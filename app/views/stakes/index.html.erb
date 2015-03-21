@@ -33,6 +33,37 @@
           <dt>Tounament</dt>
           <dd><%= stake.tournament.event %></dd>
 
+          <% if stake.tournament_id_2 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_2).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_3 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_3).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_4 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_4).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_5 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_5).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_6 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_6).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_7 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_7).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_8 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_8).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_9 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_9).event%></dd>
+          <% end %>
+          <% if stake.tournament_id_10 != nil  %>
+          <dd><%= Tournament.find_by(id: stake.tournament_id_10).event%></dd>
+          <% end %>
+
+
+
+
           <dt>Amount of shares</dt>
           <dd><%= stake.amount_of_shares %></dd>
 
