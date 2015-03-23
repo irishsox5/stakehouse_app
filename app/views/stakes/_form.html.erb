@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
+
  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="field">
     <%= f.label :tour_id %><br>
     <%= f.collection_select :tour_id, Tour.all, :id, :name, include_blank: true %>
@@ -22,6 +24,7 @@
 
 <div class="input_fields_wrap">
   <button class="add_field_button">Add More Tournaments</button>
+
 </div>
 </div>
 
@@ -42,6 +45,16 @@
     <button><%= link_to 'Back', stakes_path %></button>
   </div>
 <% end %>
+
+<div class="hide">
+  <% Tour.all.each do |tour| %>
+    <select id="tour_<%=tour.id%>">
+      <%=options_from_collection_for_select(tour.tournaments, :id, :event)%>
+    </select>
+  <% end %>
+</div>
+
+
 <script>
 
 $(document).ready(function() {
@@ -51,19 +64,17 @@ $(document).ready(function() {
 
     var x = 1; //initlal text box count
     $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
+      e.preventDefault();
+        if(x <= max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append("<div><select name='tournament_id_" + x + "'> <%=j(options_from_collection_for_select(Tournament.all.where(tour_id: 1), 'id', 'event'))%></select></div>")
+            var selected_tour_id = $('#stake_tour_id').val();
+            var tournament_options = $("select#tour_"+selected_tour_id+"").html();
+            $(wrapper).append("<div><select name='tournament_id_" + x + "'>"+tournament_options+"</select></div>");//add input box
 
 
-            // <a href="#" class="remove_field">Remove</a></div>'") //add input box
-        }
-    });
 
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
+           }
+         });
 
     var tournaments;
     tournaments = $('#stake_tournament_id').html();

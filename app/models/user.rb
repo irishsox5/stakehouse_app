@@ -21,11 +21,8 @@ class User < ActiveRecord::Base
 
   def self.client
     @client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key        = Rails.application.secrets['TWITTER_API_KEY']
-      config.consumer_secret     = Rails.application.secrets['TWITTER_SECRET_KEY']
-      config.access_token        = oauth_token
-      config.access_token_secret = oauth_secret
-
+      config.consumer_key        = "Rails.application.secrets['TWITTER_API_KEY']"
+      config.consumer_secret     = "Rails.application.secrets['TWITTER_SECRET_KEY']"
     end
   end
 

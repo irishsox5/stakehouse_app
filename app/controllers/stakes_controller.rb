@@ -75,7 +75,7 @@ class StakesController < ApplicationController
   def destroy
     @stake.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Stake was successfully deleted.' }
+      format.html { redirect_to stakes_url, notice: 'Stake was successfully deleted.' }
       format.json { head :no_content }
     end
   end
