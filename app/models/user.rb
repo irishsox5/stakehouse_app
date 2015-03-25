@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :user_id, presence: true
+  validates_presence_of :uid, :provider
 
   has_many :stakes
   has_many :tours
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
       user.username = auth["info"]["name"]
       user.screen_name = auth["info"]["nickname"]
       user.image_url = auth["info"]["image"]
+      user.location = auth["info"]["location"]
     end
   end
 

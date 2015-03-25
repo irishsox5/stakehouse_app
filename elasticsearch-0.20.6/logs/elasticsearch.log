@@ -1,0 +1,14 @@
+[2015-03-24 23:42:48,594][INFO ][node                     ] [Landslide] {0.20.6}[23728]: initializing ...
+[2015-03-24 23:42:48,600][INFO ][plugins                  ] [Landslide] loaded [], sites []
+[2015-03-24 23:42:54,724][INFO ][node                     ] [Landslide] {0.20.6}[23728]: initialized
+[2015-03-24 23:42:54,725][INFO ][node                     ] [Landslide] {0.20.6}[23728]: starting ...
+[2015-03-24 23:42:55,426][INFO ][transport                ] [Landslide] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.83:9300]}
+[2015-03-24 23:42:59,055][INFO ][cluster.service          ] [Landslide] new_master [Landslide][00X602YgSGqR2idOMIZ0TQ][inet[/192.168.1.83:9300]], reason: zen-disco-join (elected_as_master)
+[2015-03-24 23:42:59,396][INFO ][discovery                ] [Landslide] elasticsearch/00X602YgSGqR2idOMIZ0TQ
+[2015-03-24 23:42:59,460][INFO ][http                     ] [Landslide] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.83:9200]}
+[2015-03-24 23:42:59,461][INFO ][node                     ] [Landslide] {0.20.6}[23728]: started
+[2015-03-24 23:42:59,613][INFO ][gateway                  ] [Landslide] recovered [0] indices into cluster_state
+[2015-03-24 23:53:14,556][INFO ][node                     ] [Landslide] {0.20.6}[23728]: stopping ...
+[2015-03-24 23:53:14,653][INFO ][node                     ] [Landslide] {0.20.6}[23728]: stopped
+[2015-03-24 23:53:14,653][INFO ][node                     ] [Landslide] {0.20.6}[23728]: closing ...
+[2015-03-24 23:53:14,699][INFO ][node                     ] [Landslide] {0.20.6}[23728]: closed

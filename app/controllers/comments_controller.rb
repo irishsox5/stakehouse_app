@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :current_user_must_be_owner, only: [:edit, :update, :destroy]
-
+before_action :authenticate
 
  def current_user_must_be_owner
     if current_user != @comment.user

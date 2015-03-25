@@ -54,7 +54,7 @@
 
               <% if @stake.description != "" %>
               <dt>Description</dt>
-              <dd><%= @stake.description %></dd>
+              <dd><%= @stake.description.html_safe %></dd>
               <% end %>
 
             </dl>

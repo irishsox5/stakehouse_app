@@ -23,67 +23,8 @@
         <h3 class="panel-title"> <%= image_tag stake.user.image_url, class: "img-circle profile-image" %> </h3>
       </div>
       <div class="panel-body">
-        <dl>
-          <dt>Player</dt>
-          <dd><%= link_to stake.user.username, user_url(stake.user.id) %></dd>
-
-          <dt>Tour</dt>
-          <dd><%= stake.tour.name %></dd>
-
-          <dt>Tounament</dt>
-          <dd><%= stake.tournament.event %></dd>
-
-          <% if stake.tournament_id_2 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_2).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_3 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_3).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_4 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_4).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_5 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_5).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_6 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_6).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_7 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_7).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_8 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_8).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_9 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_9).event%></dd>
-          <% end %>
-          <% if stake.tournament_id_10 != nil  %>
-          <dd><%= Tournament.find_by(id: stake.tournament_id_10).event%></dd>
-          <% end %>
-
-
-
-
-          <dt>Amount of shares</dt>
-          <dd><%= stake.amount_of_shares %></dd>
-
-          <dt>Mark Up</dt>
-          <dd><%= stake.mark_up %></dd>
-
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-        <%  if current_user == stake.user %>
-          <%= link_to icon('search-plus'), stake, class: "btn btn-primary" %>
-
-          <%= link_to icon('edit'), edit_stake_url(stake), class: "btn btn-warning" %>
-
-          <%= link_to icon('trash-o'), stake_url(stake), method: :delete, data: { confirm: "Do you really want to delete this?" }, class: "btn btn-danger" %>
-          <% else %>
-          <%= link_to icon('search-plus'), stake, class: "btn btn-primary" %>
-          <% end %>
+         <%= render 'index', :stake => stake %>
         </div>
-      </div>
     </div>
   </div>
 <% end %>
@@ -94,7 +35,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
 <script>
-  $(function() {
+
+  $(document).ready(function() {
     // quick search regex
     var qsRegex;
 
@@ -133,6 +75,7 @@
       timeout = setTimeout( delayed, threshold || 100 );
     }
   }
+
 </script>
 
 <!-- End responsive, Isotope-based layout example -->

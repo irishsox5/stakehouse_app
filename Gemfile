@@ -14,8 +14,9 @@ gem 'kaminari'
 
 gem 'ratyrate', :github => 'wazery/ratyrate'
 
-gem 'paypal-sdk-adaptivepayments'
+gem 'tinymce-rails'
 
+gem 'jquery-turbolinks'
 
 gem 'activeadmin', github: 'activeadmin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
