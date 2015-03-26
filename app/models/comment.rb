@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+resourcify
 belongs_to :stake
 
 belongs_to :user

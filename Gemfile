@@ -18,6 +18,10 @@ gem 'tinymce-rails'
 
 gem 'jquery-turbolinks'
 
+gem "rolify"
+
+gem "cancan"
+
 gem 'activeadmin', github: 'activeadmin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

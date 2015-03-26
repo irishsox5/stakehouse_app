@@ -76,6 +76,11 @@
     }
   }
 
+  $("#stakes .panel-body").infinitescroll({
+    navSelector: "div.pagination",
+    nextSelector: "div.pagination a[rel=next]",
+    itemSelector: "#stakes div.player"
+  });
 </script>
 
 <!-- End responsive, Isotope-based layout example -->

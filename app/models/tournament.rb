@@ -1,4 +1,5 @@
 class Tournament < ActiveRecord::Base
+resourcify
 validates :event, presence: true
 validates :start_time, presence: true
 validates :start_date, presence: true

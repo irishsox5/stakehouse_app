@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   validates_presence_of :uid, :provider
 
   has_many :stakes
@@ -17,8 +18,17 @@ class User < ActiveRecord::Base
       user.screen_name = auth["info"]["nickname"]
       user.image_url = auth["info"]["image"]
       user.location = auth["info"]["location"]
+      # user = User.find(1)
+      # user.add_role :user
     end
   end
+
+   # user = User.find(2)
+   # user.add_role :admin
+
+   # user = User.find(3)
+   # user.add_role :super_admin
+
 
   def self.client
     @client ||= Twitter::REST::Client.new do |config|
