@@ -39,6 +39,7 @@ before_action :authenticate
 
     respond_to do |format|
       if @comment.save
+        @comment.create_activity :create, owner: current_user
         format.html { redirect_to :back, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else

@@ -17,7 +17,7 @@
   <tr>
     <% @tour.tournaments.each do |tournament|%>
     <td></td>
-    <td data-checkbox="true"><%= tournament.start_date %></td>
+    <td ><%= tournament.start_date %></td>
     <td><%= tournament.event%></td>
     <td><%= number_to_currency(tournament.buy_in) %></td>
   </tr>

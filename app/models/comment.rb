@@ -1,10 +1,13 @@
 class Comment < ActiveRecord::Base
-resourcify
-belongs_to :stake
+  resourcify
+  include PublicActivity::Model
+  #tracked owner: ->(controller, model) { controller && controller.current_user }
 
-belongs_to :user
+  belongs_to :stake
 
-validates :user, :presence => true
-validates :content, :presence => true
+  belongs_to :user
+
+  validates :user, :presence => true
+  validates :content, :presence => true
 
 end

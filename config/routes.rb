@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :relationships
+
   post '/rate' => 'rater#create', :as => 'rate'
 
   ActiveAdmin.routes(self)

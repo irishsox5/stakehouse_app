@@ -48,6 +48,7 @@ class StakesController < ApplicationController
 
     respond_to do |format|
       if @stake.save
+        @stake.create_activity :create, owner: current_user
         format.html { redirect_to @stake, notice: 'Stake was successfully created.' }
         format.json { render :show, status: :created, location: @stake }
       else

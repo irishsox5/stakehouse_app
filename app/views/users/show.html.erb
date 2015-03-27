@@ -1,7 +1,15 @@
 <%= image_tag @user.image_url %>
-@<%= @user.screen_name %> <br>
+<i class="fa fa-twitter"></i>@<%= @user.screen_name %> <br>
 <%= @user.username %><br>
 <%= @user.location %>
+
+<ul>
+Investors: <%= @user.investors.count %>
+</ul>
+
+<ul>
+Investments: <%= @user.investments.count %>
+</ul>
 
 <div>
 <!-- Integrity : <%#= rating_for @user, 'integrity',:disable_after_rate => true %> -->

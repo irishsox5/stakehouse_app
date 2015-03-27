@@ -22,6 +22,8 @@ gem "rolify"
 
 gem "cancan"
 
+gem 'public_activity'
+
 gem 'activeadmin', github: 'activeadmin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
