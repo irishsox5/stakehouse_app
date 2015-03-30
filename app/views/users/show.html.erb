@@ -1,5 +1,10 @@
-<%= image_tag @user.image_url %>
-<i class="fa fa-twitter"></i>@<%= @user.screen_name %> <br>
+<%= image_tag @user.image_url %><br>
+<% if @user.location == "" %>
+<i class="fa fa-map-marker fa-lg"></i> Add Location<br>
+<% else %>
+<i class="fa fa-map-marker fa-lg"></i> <%= @user.location %><br>
+<% end %>
+<i class="fa fa-twitter fa-lg"></i> @<%= @user.screen_name %> <br>
 <%= @user.username %><br>
 <%= @user.location %>
 

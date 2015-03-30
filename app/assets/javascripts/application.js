@@ -16,4 +16,6 @@
 //= require_tree .
 //= require tinymce-jquery
 
-// $("#stakes").append("<div class='panel-body'><%= escape_javascript(render(@stakes))%></div>");
+
+
+
