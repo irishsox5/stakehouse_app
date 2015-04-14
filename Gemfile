@@ -24,6 +24,9 @@ gem "cancan"
 
 gem 'public_activity'
 
+gem 'carrierwave'
+gem "rmagick"
+
 gem 'activeadmin', github: 'activeadmin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

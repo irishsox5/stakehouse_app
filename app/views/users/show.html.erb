@@ -29,12 +29,24 @@
               <h1 class="rightColTitle">Preferred Games</h1>
               <div class="row">
                 <div class="col-sm-7">
-                  <ul class="games">
+                <% if @user == current_user  %>
+                 <div class="panel-body">
+                 <% game = Game.new %>
+                 <% game.user_id = current_user.id %>
+                 <%= form_for game do |f| %>
+                  <%= f.text_field :name, class: 'form-control', :placeholder => "Add Your Favorite Games" %>
+                  <%= f.hidden_field :user_id %>
+                  <% end %>
+                </div>
+                <% end %>
+                <ul class="games">
+                <% @user.games.each do |game| %>
                     <li>
-                      <a>Texas Hold 'Em</a>
+                      <a><%= game.name %></a>
                     </li>
+                    <% end %>
                     <li>
-                      <a>Omaha</a>
+                      <a>Texas Hold Em</a>
                     </li>
                     <li>
                       <a>7-Card Stud</a>
@@ -85,7 +97,6 @@
 
 
   <div class="clear"></div>
-
   <div class="container marginTop45">
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
@@ -116,18 +127,55 @@
         <li><a href="#Graphs" data-toggle="tab">Graphs</a></li>
       </ul>
       <div class="tab-content user-tab-content">
-        <div class="tab-pane active" id="Itinerary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          <br><br>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          <br><br>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <div class="tab-pane active" id="Itinerary">
+         <div class="row">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <% if @user == current_user  %>
+              <h3 class="panel-title">Where Are You Playing?</h3>
+              <% else %>
+              <h3 class="panel-title">Here's where <%= @user.username %> plans on playing</h3>
+              <% end %>
+            </div>
+            <% if @user == current_user  %>
+            <div class="panel-body">
+              <% itinerary = Itinerary.new %>
+              <% itinerary.user_id = current_user.id %>
+              <%= form_for itinerary do |f| %>
+              <%= f.text_field :content, class: 'form-control', :placeholder => "Tell Us Where You're Playing!" %>
+              <%= f.hidden_field :user_id %>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+          <ul class="media-list">
+          <% @user.itineraries.each do |itinerary| %>
+            <%= render 'itineraries/itinerary', :itinerary => itinerary %>
+            <% end %>
+          </ul>
+       </div>
         </div>
         <div class="tab-pane" id="Cashes">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          <br><br>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          <br><br>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+         <div class="panel panel-default">
+            <div class="panel-heading">
+             <% if @user == current_user  %>
+            <h3 class="panel-title">How Much Have You Made?</h3>
+            <% else %>
+            <h3 class="panel-title">Check out <%= @user.username %>'s Previous Cashes</h3>
+            <% end %>
+            </div>
+             <% if @user == current_user  %>
+            <div class="panel-body">
+              <% cashes = Cash.new %>
+              <% cashes.user_id = current_user.id %>
+              <%= form_for cashes do |f| %>
+              <%= f.text_field :content, class: 'form-control', :placeholder => "Add All Your Previous Cashes Links and References" %>
+              <%= f.hidden_field :user_id %>
+              <% end %>
+             </div>
+              <% end %>
+           </div>
         </div>
         <div class="tab-pane" id="Investors">
           <% @user.investors.each do |invest| %>
@@ -135,7 +183,8 @@
             <div class="investor-name">
              <h2><%= invest.username%></h2>
              <div class="investor-img"><%= image_tag invest.image_url, :width=> 192, :height => 160 %></div>
-             <p>Lorem Ipsum is simply printing</p>
+             <p></p>
+             <p></p>
            </div>
          </div>
          <% end %>
@@ -176,6 +225,8 @@
       $("li.dropdown").toggleClass("open");
     });
   });
+</script>
+<script>
   $(window).load(function() {
    var i =0;
    var images = ['coverPicBg1.png', 'coverPicBg.png', 'coverPicBg2.png'];
@@ -197,6 +248,9 @@
 
 
 <body>
+ <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/bootstrap.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
   <script src="//platform.twitter.com/widgets.js"></script>
 </body>
 

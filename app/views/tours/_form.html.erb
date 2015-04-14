@@ -15,11 +15,18 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-  </div>
-  <div class="actions">
+  <hr>
+    <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :remote_image_url, "OR image URL" %><br/>
+      <%= f.text_field :remote_image_url, :class => 'form-control' %>
+    </div>
+  <hr>
+  <div class="actions text-center">
     <%= f.submit %>
   </div>
 <% end %>

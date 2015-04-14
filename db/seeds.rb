@@ -1,7 +1,6 @@
 #World Series of Poker 2015 Tout & Tournaments
 p1=Tour.new
 p1.name="World Series of Poker 2015"
-p1.image="http://calvinayre.com/wp-content/uploads/2013/12/world-series-of-poker-release-2014-schedule.jpg"
 p1.save
 
 t1=Tournament.new
@@ -863,7 +862,6 @@ t76.save
 #Heartland Poker Tour & Tournaments
 p2=Tour.new
 p2.name="Heartland Poker Tour"
-p2.image="http://www.casinoaffiliateprograms.com/blog/wp-content/themes/capblog/post_img/6213.jpg"
 p2.save
 
 t77=Tournament.new
@@ -1006,7 +1004,6 @@ t88.save
 
 p3=Tour.new
 p3.name="Mid-States Poker Tour"
-p3.image="http://www.mnpokermag.com/wp-content/uploads/2011/11/MSPT-Template-Logo.jpg"
 p3.save
 
 

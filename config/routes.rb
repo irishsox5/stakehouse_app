@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :cashes
+
+  resources :games
+
+  resources :itineraries
+
   resources :relationships
 
   post '/rate' => 'rater#create', :as => 'rate'

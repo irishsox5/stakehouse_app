@@ -1,13 +1,18 @@
-<h1>Live Poker Tours</h1>
+<!-- Four Columns -->
+<div class="container content">
+  <div class="text-center margin-bottom-50">
+    <h2 class="title-v2 title-center">Live Poker Tours</h2>
+    <p class="space-lg-hor">If you are going to use a <span class="color-green">passage of Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making <span class="color-green">this the first</span> true generator on the Internet.</p>
+  </div>
 
-
-<div class="bottom">
-    <div class="box-content right">
+  <div class="row  margin-bottom-30">
     <% @tours.each do |tour| %>
-        <div class="col-md-6"><%= link_to image_tag(tour.image), tour_url(tour.id) %><hr></div>
-    <% end %>
-        </div>
-    </div>
-
+    <div class="col-sm-3 sm-margin-bottom-30">
+    <%= link_to image_tag(tour.image_url.to_s), tour_url(tour.id), :class=> "img-responsive", :height => 222 %>
+   </div>
+     <% end %>
+     <br>
+ </div>
+ <!-- End Four Columns -->
 
 

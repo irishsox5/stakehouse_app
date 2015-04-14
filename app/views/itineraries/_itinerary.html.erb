@@ -1,0 +1,18 @@
+<li id='itinerary_<%= itinerary.id %>' class="media">
+  <div class="media-left">
+    <%= image_tag itinerary.user.image_url %>
+  </div>
+  <div class="media-body">
+
+
+    <%= itinerary.content %><br>
+
+  <small class="data-object">
+    <%= time_ago_in_words(itinerary.created_at) %> ago
+    <% if current_user == itinerary.user %>
+    <%= link_to 'Edit', edit_itinerary_path(itinerary), class: "btn btn-default btn-xs" %>
+    <%= link_to 'Delete', itinerary_url(itinerary), method: :delete, data: { confirm: "Do you really want to delete this?" }, class: "btn btn-default btn-xs", :remote => true  %>
+    <% end %>
+  </small>
+  </div>
+</li>
